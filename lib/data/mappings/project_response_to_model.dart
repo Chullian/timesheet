@@ -1,6 +1,7 @@
-import 'package:timesheet/domain/mapper/mapper.dart';
 import 'package:timesheet/domain/projects_model.dart';
 import 'package:timesheet/domain/responses/projects_response.dart';
+
+import '../mapper/mapper.dart';
 
 class ProjectResponseMapper extends Mapper<ProjectResponse, ProjectModel> {
   @override

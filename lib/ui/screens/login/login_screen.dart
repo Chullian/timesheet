@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../components/text_fields.dart';
 import 'bloc/login_bloc.dart';
@@ -16,7 +17,7 @@ class LoginScreen extends StatelessWidget {
         body: BlocListener<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state.isLoginSuccess != null && state.isLoginSuccess!) {
-              context.router.pushNamed("/home");
+              context.router.replaceNamed("/home");
             }
           },
           child: Padding(
@@ -30,7 +31,10 @@ class LoginScreen extends StatelessWidget {
                           ctx
                               .read<LoginBloc>()
                               .add(LoginUsernameUpdate(username))
-                        }),
+                        },
+                    leadingIcon: IconButton(
+                        onPressed: () => {},
+                        icon: SvgPicture.asset('assets/icons/ic_email.svg'))),
                 const SizedBox(
                   height: 10,
                 ),
@@ -40,7 +44,11 @@ class LoginScreen extends StatelessWidget {
                           ctx
                               .read<LoginBloc>()
                               .add(LoginPasswordUpdate(password))
-                        }),
+                        },
+                    leadingIcon: IconButton(
+                        onPressed: () => {},
+                        icon:
+                            SvgPicture.asset('assets/icons/ic_password.svg'))),
                 const SizedBox(
                   height: 10,
                 ),

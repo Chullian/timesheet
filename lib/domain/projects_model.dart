@@ -9,30 +9,30 @@ class ProjectModel {
   List<String>? _projectTeam;
 
   ProjectModel({
-    int? projectId = 0,
-    String? projectName = "",
-    String? projectState = "",
-    int? createdAt = 0,
-    List<String>? projectTeam = const [],
-    List<Timings>? timings = const [],
+    int? projectId,
+    String? projectName,
+    String? projectState,
+    int? createdAt,
+    List<String>? projectTeam,
+    List<Timings>? timings,
   }) {
     if (projectId != null) {
-      this._projectId = projectId;
+      _projectId = projectId;
     }
     if (createdAt != null) {
-      this._createdAt = createdAt;
+      _createdAt = createdAt;
     }
     if (projectName != null) {
-      this._projectName = projectName;
+      _projectName = projectName;
     }
     if (projectState != null) {
-      this._projectState = projectState;
+      _projectState = projectState;
     }
     if (projectTeam != null) {
-      this._projectTeam = projectTeam;
+      _projectTeam = projectTeam;
     }
     if (timings != null) {
-      this._timings = timings;
+      _timings = timings;
     }
   }
 

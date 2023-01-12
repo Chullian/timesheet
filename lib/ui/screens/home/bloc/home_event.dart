@@ -10,13 +10,23 @@ abstract class HomeEvent extends Equatable {
 
 class HomePressedTileAction extends HomeEvent {
   bool toRun;
+  int projectId;
+  String projectName;
   HomePressedTileAction({
     required this.toRun,
+    required this.projectId,
+    required this.projectName,
   });
+  @override
+  List<Object> get props => [toRun];
 }
 
 class HomePressedProjectTile extends HomeEvent {
-  HomePressedProjectTile();
+  const HomePressedProjectTile();
+}
+
+class HomeProjectStartStopConfirmation extends HomeEvent {
+  const HomeProjectStartStopConfirmation();
 }
 
 class HomeFetchProjects extends HomeEvent {

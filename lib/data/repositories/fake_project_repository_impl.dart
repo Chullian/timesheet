@@ -56,6 +56,24 @@ class FakeProjectRepositoryImpl extends ProjectRepository {
         projectTeam: ["JOHN", "HAMID", "SHARIF", "SHAHARBIN", "MUZAMMIL"],
         timings: [TimingResponse(startedAt: 12345678, stoppedAt: 12345678)],
       ),
+      ProjectResponse(
+        projectId: 8,
+        projectName: "Project 8",
+        projectTeam: ["JOHN", "HAMID", "SHARIF", "SHAHARBIN", "MUZAMMIL"],
+        timings: [TimingResponse(startedAt: 12345678, stoppedAt: 12345678)],
+      ),
+      ProjectResponse(
+        projectId: 9,
+        projectName: "Project 9",
+        projectTeam: ["JOHN", "HAMID", "SHARIF", "SHAHARBIN", "MUZAMMIL"],
+        timings: [TimingResponse(startedAt: 12345678, stoppedAt: 12345678)],
+      ),
+      ProjectResponse(
+        projectId: 10,
+        projectName: "Project 10",
+        projectTeam: ["JOHN", "HAMID", "SHARIF", "SHAHARBIN", "MUZAMMIL"],
+        timings: [TimingResponse(startedAt: 12345678, stoppedAt: 12345678)],
+      ),
     ];
     var response = BaseResponse<List<ProjectResponse>>(
         status: true, message: "projects fetched successfully", data: list);

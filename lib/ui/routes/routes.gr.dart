@@ -77,7 +77,7 @@ class AppRouter extends _i5.RootStackRouter {
         ),
         _i5.RouteConfig(
           ProjectDetailScreenRoute.name,
-          path: '/project_details}',
+          path: '/project_details',
         ),
       ];
 }
@@ -127,7 +127,7 @@ class ProjectDetailScreenRoute
     required int projectId,
   }) : super(
           ProjectDetailScreenRoute.name,
-          path: '/project_details}',
+          path: '/project_details',
           args: ProjectDetailScreenRouteArgs(
             key: key,
             projectId: projectId,

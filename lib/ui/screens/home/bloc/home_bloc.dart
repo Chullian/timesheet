@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:timesheet/data/config/remote_config.dart';
 import 'package:timesheet/data/mappings/project_response_to_model.dart';
 import 'package:timesheet/domain/network_response.dart';
 import 'package:timesheet/domain/projects_model.dart';
@@ -18,7 +19,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeFetchProjects>((event, emit) {
       _fetchProjects(event, emit);
     });
-    on<HomePressedTileAction>((event, emit) {});
+    on<HomePressedTileAction>((event, emit) {
+      handleTileAction(event, emit);
+    });
   }
 
   void _fetchProjects(HomeFetchProjects event, Emitter<HomeState> emit) async {
@@ -29,11 +32,22 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           (response.successResponse as BaseResponse<List<ProjectResponse>>)
                   .data ??
               []);
-      emit(HomeState(projects: list));
+      emit(state.copy(projects: list));
     } else if (response is Failure) {
       // emit(state.copy(is: false, loginError: "error"));
     } else if (response is Error) {
       // emit(state.copy(loginError: value.exception.toString()));
+    }
+  }
+
+  void handleTileAction(HomePressedTileAction event, Emitter<HomeState> emit) {
+    var isTimerRequireApproval = (event.toRun)
+        ? RemoteConfig().findConfigByType("timer_start_aproval")
+        : RemoteConfig().findConfigByType("timer_stop_aproval");
+    if (isTimerRequireApproval) {
+      emit(state.copy(showApprovalBottomSheet: isTimerRequireApproval));
+    } else {
+      // startTime()
     }
   }
 }

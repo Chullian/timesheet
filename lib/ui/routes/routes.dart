@@ -7,9 +7,9 @@ import 'package:timesheet/ui/screens/registration/registration_screen.dart';
 // part 'routes.gr.dart';
 
 @MaterialAutoRouter(routes: [
-  AutoRoute(page: LoginScreen, path: "/login", initial: true),
-  AutoRoute(page: RegistrationScreen, path: "/registration"),
-  AutoRoute(page: HomeScreen, path: "/home"),
-  AutoRoute(page: ProjectDetailScreen, path: "/project_details"),
+  MaterialRoute(page: LoginScreen, path: "/login", initial: true),
+  MaterialRoute(page: RegistrationScreen, path: "/registration"),
+  MaterialRoute(page: HomeScreen, path: "/home"),
+  MaterialRoute(page: ProjectDetailScreen, path: "/project_details"),
 ])
 class $AppRouter {}

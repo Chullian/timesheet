@@ -14,3 +14,34 @@ class GetProjectDetailEvent extends ProjectDetailEvent {
   @override
   List<Object> get props => [projectId];
 }
+
+class PressedProjectTileAction extends ProjectDetailEvent {
+  bool toRun;
+  PressedProjectTileAction({
+    required this.toRun,
+  });
+  @override
+  List<Object> get props => [toRun];
+}
+
+class OnSelectedStartDate extends ProjectDetailEvent {
+  int date;
+  OnSelectedStartDate({
+    required this.date,
+  });
+  @override
+  List<Object> get props => [date];
+}
+
+class OnSelectedEndDate extends ProjectDetailEvent {
+  int date;
+  OnSelectedEndDate({
+    required this.date,
+  });
+  @override
+  List<Object> get props => [date];
+}
+
+class PressedProjectTile extends ProjectDetailEvent {
+  PressedProjectTile();
+}
